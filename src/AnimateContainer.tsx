@@ -59,14 +59,13 @@ const AnimatedContainer: React.FC<AnimatedContainerProps> = ({
           onPress={() => {
             maskTouchClosable && onClose();
           }}
+        />
+        <View
+          onStartShouldSetResponder={() => true}
+          style={{ alignItems: 'center' }}
         >
-          <View
-            onStartShouldSetResponder={() => true}
-            style={{ alignItems: 'center' }}
-          >
-            {modalView}
-          </View>
-        </TouchableOpacity>
+          {modalView}
+        </View>
       </Animated.View>
     </Animated.View>
   );
