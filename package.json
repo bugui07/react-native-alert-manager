@@ -1,35 +1,19 @@
 {
   "name": "react-native-alert-manager",
-  "version": "0.1.0",
+  "version": "0.1.4",
   "description": "What is the description for the package?",
   "main": "lib/module/index.js",
   "types": "lib/typescript/src/index.d.ts",
   "exports": {
     ".": {
-      "source": "./src/index.tsx",
+      "source": "./lib/typescript/src/index.d.ts",
       "types": "./lib/typescript/src/index.d.ts",
       "default": "./lib/module/index.js"
     },
     "./package.json": "./package.json"
   },
   "files": [
-    "src",
-    "lib",
-    "!**/__tests__",
-    "!**/__fixtures__",
-    "!**/__mocks__",
-    "android",
-    "ios",
-    "cpp",
-    "*.podspec",
-    "react-native.config.js",
-    "!ios/build",
-    "!android/build",
-    "!android/gradle",
-    "!android/gradlew",
-    "!android/gradlew.bat",
-    "!android/local.properties",
-    "!**/.*"
+    "lib"
   ],
   "scripts": {
     "example": "yarn workspace react-native-alert-manager-example",
@@ -91,8 +75,8 @@
   "peerDependencies": {
     "react": ">=17.0.0",
     "react-native": ">=0.68.0",
-    "react-native-root-siblings": "*",
-    "react-native-reanimated": "*"
+    "react-native-reanimated": "*",
+    "react-native-root-siblings": "*"
   },
   "workspaces": [
     "example"
@@ -159,7 +143,6 @@
     "type": "library",
     "version": "0.51.1"
   },
-  "react-native": "src/index.tsx",
   "module": "lib/module/index.js",
   "@react-native-community/bob": {
     "source": "src",

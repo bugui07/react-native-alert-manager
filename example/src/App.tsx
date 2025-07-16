@@ -1,5 +1,6 @@
 import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
-import AlertManager, { AnimationType } from 'react-native-alert-manager';
+import AlertManager from 'react-native-alert-manager';
+import type { AnimationType } from 'react-native-alert-manager';
 import { RootSiblingParent } from 'react-native-root-siblings';
 
 export default function App() {

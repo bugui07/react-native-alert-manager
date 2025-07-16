@@ -11399,7 +11399,7 @@ __metadata:
   peerDependencies:
     react: ">=17.0.0"
     react-native: ">=0.68.0"
-    react-native-reanimated: ^3.18.0
+    react-native-reanimated: "*"
     react-native-root-siblings: "*"
   languageName: unknown
   linkType: soft
