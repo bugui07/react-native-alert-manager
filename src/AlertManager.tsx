@@ -1,31 +1,28 @@
 import React from 'react';
 import RootSiblingsManager from 'react-native-root-siblings';
 import AnimatedContainer from './AnimateContainer';
-export type AnimationType =
+
+type AnimationType =
   | 'fade'
   | 'slide-up'
   | 'slide-down'
   | 'slide-left'
   | 'slide-right';
 
-export interface AlertOptions {
+interface AlertOptions {
   key: string;
   maskTouchClosable?: boolean;
   closedCallback?: () => void;
   maskColor?: string;
-  animationType?: AnimationType;
-}
-export type AlertNode = {
-  rootNode: RootSiblingsManager;
-  onClose: () => void;
-};
-export interface AlertOptions {
-  key: string;
-  maskTouchClosable?: boolean;
-  closedCallback?: () => void;
   maskStyle?: object;
   animationType?: AnimationType;
 }
+
+type AlertNode = {
+  rootNode: RootSiblingsManager;
+  onClose: () => void;
+};
+
 class AlertManager {
   static _alertNodes: Record<string, AlertNode> = {};
   static options: Partial<AlertOptions> = {};
@@ -57,10 +54,10 @@ class AlertManager {
           animationType={animationType}
           maskColor={maskColor}
         />
-      ),
+      )
     );
 
-    this._alertNodes[key] = {rootNode, onClose};
+    this._alertNodes[key] = { rootNode, onClose };
   }
 
   static update(key: string, modalView: React.ReactNode) {
@@ -70,7 +67,7 @@ class AlertManager {
       animationType = 'slide-up',
     } = AlertManager.options;
     if (this._alertNodes[key]) {
-      const {rootNode, onClose} = this._alertNodes[key];
+      const { rootNode, onClose } = this._alertNodes[key];
       rootNode.update(
         <AnimatedContainer
           maskTouchClosable={maskTouchClosable}
@@ -78,7 +75,7 @@ class AlertManager {
           animationType={animationType}
           maskColor={maskColor}
           onClose={onClose}
-        />,
+        />
       );
     }
   }
@@ -87,6 +84,5 @@ class AlertManager {
     this._alertNodes?.[key]?.onClose?.();
   }
 }
-
 export default AlertManager;
-
+export type { AlertOptions, AlertNode, AnimationType };

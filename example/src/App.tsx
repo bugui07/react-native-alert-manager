@@ -29,8 +29,18 @@ export default function App() {
 
 function ModelView() {
   return (
-    <View style={{ width: 200, height: 200, backgroundColor: 'pink' }}>
-      <Text>ModelView</Text>
+    <View
+      style={{
+        width: 200,
+        height: 200,
+        backgroundColor: 'pink',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+    >
+      <TouchableOpacity onPress={() => FadeAlert.hide()}>
+        <Text>Hide</Text>
+      </TouchableOpacity>
     </View>
   );
 }

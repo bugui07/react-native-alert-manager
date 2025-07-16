@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, TouchableOpacity} from 'react-native';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import Animated, {
   FadeIn,
   FadeOut,
@@ -14,7 +14,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import type { AnimationType } from './AlertManager';
 const animationMap = {
-  fade: [FadeIn, FadeOut],
+  'fade': [FadeIn, FadeOut],
   'slide-up': [SlideInDown, SlideOutDown],
   'slide-down': [SlideInUp, SlideOutUp],
   'slide-left': [SlideInLeft, SlideOutLeft],
@@ -39,10 +39,11 @@ const AnimatedContainer: React.FC<AnimatedContainerProps> = ({
       style={[
         styles.container,
         StyleSheet.absoluteFill,
-        {backgroundColor: maskColor},
+        { backgroundColor: maskColor },
       ]}
       entering={FadeIn}
-      exiting={FadeOut}>
+      exiting={FadeOut}
+    >
       <Animated.View
         style={StyleSheet.absoluteFill}
         entering={
@@ -50,14 +51,21 @@ const AnimatedContainer: React.FC<AnimatedContainerProps> = ({
         }
         exiting={
           animationType !== 'fade' ? animationMap[animationType][1] : undefined
-        }>
+        }
+      >
         <TouchableOpacity
           activeOpacity={1}
           style={[StyleSheet.absoluteFill, styles.content]}
           onPress={() => {
             maskTouchClosable && onClose();
-          }}>
-          {modalView}
+          }}
+        >
+          <View
+            onStartShouldSetResponder={() => true}
+            style={{ alignItems: 'center' }}
+          >
+            {modalView}
+          </View>
         </TouchableOpacity>
       </Animated.View>
     </Animated.View>

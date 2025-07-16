@@ -51,7 +51,8 @@ Update the modal content for the given key.
 
 ```bash
 import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
-import AlertManager, { AnimationType } from 'react-native-alert-manager';
+import AlertManager from 'react-native-alert-manager';
+import type { AnimationType } from 'react-native-alert-manager';
 import { RootSiblingParent } from 'react-native-root-siblings';
 
 export default function App() {
@@ -80,8 +81,18 @@ export default function App() {
 
 function ModelView() {
   return (
-    <View style={{ width: 200, height: 200, backgroundColor: 'pink' }}>
-      <Text>ModelView</Text>
+    <View
+      style={{
+        width: 200,
+        height: 200,
+        backgroundColor: 'pink',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+    >
+      <TouchableOpacity onPress={() => FadeAlert.hide()}>
+        <Text>Hide</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -94,11 +105,10 @@ class FadeAlert {
       closedCallback: () => {
         console.log('FadeAlert closed');
       },
-      maskColor: 'rgba(0,0,0,0.2)',
+      maskColor: 'rgba(0,0,0,.2)',
       animationType,
     });
   }
-
   static hide() {
     AlertManager.hide('FadeAlert');
   }
@@ -111,4 +121,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
 ```
