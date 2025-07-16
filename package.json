@@ -1,6 +1,6 @@
 {
   "name": "react-native-alert-manager",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "What is the description for the package?",
   "main": "lib/module/index.js",
   "types": "lib/typescript/src/index.d.ts",

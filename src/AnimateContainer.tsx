@@ -45,7 +45,7 @@ const AnimatedContainer: React.FC<AnimatedContainerProps> = ({
       exiting={FadeOut}
     >
       <Animated.View
-        style={StyleSheet.absoluteFill}
+        style={[StyleSheet.absoluteFill, styles.content]}
         entering={
           animationType !== 'fade' ? animationMap[animationType][0] : undefined
         }
@@ -55,7 +55,7 @@ const AnimatedContainer: React.FC<AnimatedContainerProps> = ({
       >
         <TouchableOpacity
           activeOpacity={1}
-          style={[StyleSheet.absoluteFill, styles.content]}
+          style={StyleSheet.absoluteFill}
           onPress={() => {
             maskTouchClosable && onClose();
           }}
