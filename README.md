@@ -11,6 +11,7 @@ A simple and flexible modal/alert manager for React Native with animation suppor
   - `slide-down`
   - `slide-left`
   - `slide-right`
+  - `zoom`
 - Click outside to close (`maskTouchClosable`)
 - Customizable mask color
 - Reusable singleton alerts
@@ -72,6 +73,9 @@ export default function App() {
           <Text>Show SlideLeftAlert</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => FadeAlert.show('slide-right')}>
+          <Text>Show SlideRightAlert</Text>
+        </TouchableOpacity>
+         <TouchableOpacity onPress={() => FadeAlert.show('zoom')}>
           <Text>Show SlideRightAlert</Text>
         </TouchableOpacity>
       </RootSiblingParent>

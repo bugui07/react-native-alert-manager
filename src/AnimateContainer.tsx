@@ -11,6 +11,8 @@ import Animated, {
   SlideOutLeft,
   SlideInRight,
   SlideOutRight,
+  ZoomIn,
+  ZoomOut,
 } from 'react-native-reanimated';
 import type { AnimationType } from './AlertManager';
 const animationMap = {
@@ -19,6 +21,7 @@ const animationMap = {
   'slide-down': [SlideInUp, SlideOutUp],
   'slide-left': [SlideInLeft, SlideOutLeft],
   'slide-right': [SlideInRight, SlideOutRight],
+  'zoom': [ZoomIn, ZoomOut],
 };
 interface AnimatedContainerProps {
   modalView: React.ReactNode;

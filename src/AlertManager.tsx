@@ -7,7 +7,8 @@ type AnimationType =
   | 'slide-up'
   | 'slide-down'
   | 'slide-left'
-  | 'slide-right';
+  | 'slide-right'
+  | 'zoom';
 
 interface AlertOptions {
   key: string;
@@ -33,7 +34,7 @@ class AlertManager {
       maskTouchClosable = true,
       closedCallback,
       maskColor = 'rgba(0, 0, 0, 0.4)',
-      animationType = 'slide-up',
+      animationType = 'fade',
     } = options;
     if (this._alertNodes[key]) return;
     AlertManager.options = options;
